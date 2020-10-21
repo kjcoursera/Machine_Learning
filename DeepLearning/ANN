@@ -1,0 +1,33 @@
+conv : input=3, output =18
+max pool = [2,2]
+linear: in=18, out =4608 -> reshape
+linear : in=18*16*16 ,out=64
+linear : in =64, out = 10
+
+
+relu*con (3,32,32) -> (18,32,32)
+maxpool (18,32,32) -> (18,32/2,32/12) -> (18,16,16)
+reshape: (18,16,16) -> (1,18*16*16) -> (1,4608)
+relu*linear -> (1,4608) -> (1,64)
+relu*linear --> (1,64) to (1,10))
+
+
+--------------------------------------------
+
+conv: input =3 , output =18
+max : [2,2]
+conc: in =18 , out=
+linear:in= ,out= 128
+linear:in= ,out =64
+linear:in= ,out = 2
+
+relu*con : (3,320,320) -> (18,320,320)
+maxpool: (18,320,320) -> (18,320/2,18/320) -> (18,160,160)
+relu*conv:(18,160,160) -> (18,160/2,160/2) ->  (18,80,80)
+relu*conv:(18,160,160) -> (64,80/2,80/2) ->  (18,40,40)
+reshape : (1,18*80*80) ->(1,6400) ->(1,128)
+linear:(1,128) -> (1,64)
+linear:(1,64) - >(1,2)
+
+
+The personalized stream translates into higher levels of engagement, longer viewing, and more advertising impressions - resulting in more revenue staying with the content owners.
